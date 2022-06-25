@@ -1,22 +1,22 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Nav({userName}) {
+export default function Nav({ userName }) {
 	return (
 		<nav className='nav'>
 			<ul>
 				<li>
-					<NavLink to='/' exact activeClassName='active'>
+					<NavLink to='/'>
 						Home
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to='/add' exact activeClassName='active'>
+					<NavLink to='/add'>
 						New Question
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to='/leaderboard' activeClassName='active'>
+					<NavLink to='/leaderboard'>
 						Leader Board
 					</NavLink>
 				</li>
@@ -24,7 +24,7 @@ export default function Nav({userName}) {
 					Hello, {userName}
 				</li>
 				<li>
-					<NavLink to='/' exact activeClassName='active'>
+					<NavLink to='/'>
 						Logout
 					</NavLink>
 				</li>

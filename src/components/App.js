@@ -15,8 +15,7 @@ class App extends Component {
 	componentDidMount() {
 		this.props.dispatch(handleLoginData())
 	}
-	loginStateChanged = (e) => {
-		e.preventDefault();
+	loginStateChanged = () => {
 		this.state.isLogined = true;
 		this.forceUpdate();
 	}
@@ -30,7 +29,7 @@ class App extends Component {
 						{this.props.loading ? null :
 							(isLogined
 								? <>
-									<Nav />
+									<Nav userName={this.props.users[this.props.authedUser].name} />
 									<Routes>
 										<Route path='/' element={<HomePage />} />
 										<Route path='/questions/:question_id' element={<HomePage />} />
@@ -48,9 +47,11 @@ class App extends Component {
 	}
 }
 
-function mapStateToProps({ loadingBar }) {
+function mapStateToProps({ loadingBar, authedUser, users }) {
 	return {
-		loading: loadingBar.default
+		loading: loadingBar.default,
+		authedUser,
+		users
 	}
 }
 
