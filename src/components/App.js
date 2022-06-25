@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { handleLoginData } from '../actions/shared'
+import { handleInitData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading-bar'
 import Nav from './Nav'
 import LoginPage from './LoginPage'
@@ -13,11 +13,11 @@ class App extends Component {
 		isLogined: false,
 	}
 	componentDidMount() {
-		this.props.dispatch(handleLoginData())
+		this.props.dispatch(handleInitData())
 	}
 	loginStateChanged = () => {
 		this.state.isLogined = true;
-		this.forceUpdate();
+		// this.forceUpdate();
 	}
 	render() {
 		const { isLogined } = this.state;
@@ -29,7 +29,7 @@ class App extends Component {
 						{this.props.loading ? null :
 							(isLogined
 								? <>
-									<Nav userName={this.props.users[this.props.authedUser].name} />
+									<Nav user={this.props.user} />
 									<Routes>
 										<Route path='/' element={<HomePage />} />
 										<Route path='/questions/:question_id' element={<HomePage />} />
@@ -50,8 +50,7 @@ class App extends Component {
 function mapStateToProps({ loadingBar, authedUser, users }) {
 	return {
 		loading: loadingBar.default,
-		authedUser,
-		users
+		user: authedUser ? users[authedUser] : null,
 	}
 }
 

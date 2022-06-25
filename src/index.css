@@ -17,3 +17,73 @@ code {
 	margin: 0 auto;
 	padding: 10px;
 }
+
+.nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	text-decoration: none;
+}
+
+.home_nav li{
+	cursor: pointer;
+}
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	list-style-type: none;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.question {
+	width: 100%;
+	max-width: 590px;
+	padding: 10px;
+	display: flex;
+	margin: 0 auto;
+	border: 1px solid #dad7d7;
+	border-radius: 3px;
+	/* cursor: pointer; */
+	flex-direction: column;
+}
+
+.question p {
+	font-size: 18px;
+	font-weight: 400;
+	margin: 5px;
+}
+
+.question_short {
+	font-size: 15px !important;
+	font-weight: 100 !important;
+}
+
+.question_info {
+	display: flex;
+	flex-direction: row;
+	margin: 0px;
+}
+
+.question_info>div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.avatar {
+	height: 100px;
+	width: 100px;
+	border-radius: 30px;
+	margin: 20px;
+}
+
+.avatar_small {
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	margin: 0px;
+}

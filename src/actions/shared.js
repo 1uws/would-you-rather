@@ -1,24 +1,14 @@
-import { getLoginData, getAppData } from '../utils/api'
+import { getUsers, getQuestions } from '../utils/api'
 import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from '../actions/questions'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
-export function handleLoginData() {
+export function handleInitData() {
 	return (dispatch) => {
 		dispatch(showLoading())
-		return getLoginData()
-			.then((users) => {
+		return Promise.all([getUsers(), getQuestions()])
+			.then(([users, questions]) => {
 				dispatch(receiveUsers(users))
-				dispatch(hideLoading())
-			})
-	}
-}
-
-export function handleUserData() {
-	return (dispatch) => {
-		dispatch(showLoading())
-		return getAppData()
-			.then((questions) => {
 				dispatch(receiveQuestions(questions))
 				dispatch(hideLoading())
 			})

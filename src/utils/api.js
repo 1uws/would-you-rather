@@ -5,11 +5,11 @@ import {
 	_saveQuestionAnswer,
 } from './_DATA.js'
 
-export function getLoginData() {
+export function getUsers() {
 	return _getUsers();
 }
 
-export function getAppData() {
+export function getQuestions() {
 	return _getQuestions();
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Nav({ userName }) {
+export default function Nav({ user }) {
 	return (
 		<nav className='nav'>
 			<ul>
@@ -21,7 +21,13 @@ export default function Nav({ userName }) {
 					</NavLink>
 				</li>
 				<li>
-					Hello, {userName}
+					Hello, {user.name}
+
+				</li>
+				<li>
+					<img src={user.avatarURL}
+						alt={`Avatar of ${user.name}`}
+						className='avatar_small' />
 				</li>
 				<li>
 					<NavLink to='/'>
