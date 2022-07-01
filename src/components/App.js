@@ -7,6 +7,7 @@ import Nav from './Nav'
 import LoginPage from './LoginPage'
 import HomePage from './HomePage'
 import LeaderboardPage from './LeaderboardPage'
+import QuestionPage from './QuestionPage'
 
 class App extends Component {
 	state = {
@@ -32,7 +33,7 @@ class App extends Component {
 									<Nav user={this.props.user} />
 									<Routes>
 										<Route path='/' element={<HomePage />} />
-										<Route path='/questions/:question_id' element={<HomePage />} />
+										<Route path='/questions/:question_id' element={<QuestionPage />} />
 										<Route path='/add' element={<HomePage />} />
 										<Route path='/leaderboard' element={<LeaderboardPage />} />
 										<Route path='*' element={<Navigate to='/' replace />} />

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { handleLoginData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading-bar'
 import Question from './Question'
+import QuestionShort from './QuestionShort'
 
 class HomePage extends Component {
 	state = {
@@ -30,7 +31,7 @@ class HomePage extends Component {
 						.map((question) =>
 						(
 							<li key={question.id}>
-								<Question id={question.id} />
+								<QuestionShort id={question.id} />
 							</li>
 						))}
 				</ul>

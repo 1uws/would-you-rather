@@ -57,21 +57,44 @@ li {
 	margin: 5px;
 }
 
+.question button {
+	font-size: 15px;
+	font-weight: 400;
+	margin: 10px 5px;
+}
+
+
 .question_short {
 	font-size: 15px !important;
 	font-weight: 100 !important;
 }
 
-.question_info {
+.question_full {
+	display: inline-block;
+	margin: 0px;
+	font-weight: 400 !important;
+}
+
+.question_percent {
+	font-size: 15px !important;
+	display: block;
+	margin: 0px;
+	font-weight: 500 !important;
+	color: gray;
+}
+
+.question_content {
 	display: flex;
 	flex-direction: row;
 	margin: 0px;
 }
 
-.question_info>div {
+/* .question_info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+} */
+.question_info {
 }
 
 .avatar {
