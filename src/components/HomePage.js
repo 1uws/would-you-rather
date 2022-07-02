@@ -28,6 +28,7 @@ class HomePage extends Component {
 						.map(id => questions[id])
 						.filter((question) =>
 							this.state.showAnswered === (question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)))
+						.sort((questionA, questionB) => (questionA.timestamp < questionB.timestamp) ? 1 : -1)
 						.map((question) =>
 						(
 							<li key={question.id}>
