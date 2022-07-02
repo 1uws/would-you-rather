@@ -7,8 +7,6 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 	const state = {
 		option: null,
 	};
-	// const answered = question.optionOne.votes.includes(authedUser)
-	// 	|| question.optionTwo.votes.includes(authedUser);
 	const answeredOne = question.optionOne.votes.includes(authedUser);
 	const answeredTwo = question.optionTwo.votes.includes(authedUser);
 	const answered = answeredOne || answeredTwo;
@@ -45,7 +43,7 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 						<img src={author.avatar}
 							alt={`Avatar of ${author.name}`}
 							className='avatar' />
-						<div className='question_info'>
+						<div>
 							<p>Results:</p>
 							<form onSubmit={handleSubmit}>
 								<div style={{ borderWidth: '1px 1px 1px 6px', borderColor: answeredOne ? 'orange' : 'white', borderStyle: 'solid' }}>
@@ -69,7 +67,7 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 						<img src={author.avatar}
 							alt={`Avatar of ${author.name}`}
 							className='avatar' />
-						<div className='question_info'>
+						<div>
 							<p>Would You Rather...</p>
 							<form onSubmit={handleSubmit}>
 								<input type="radio" name='option' value="optionOne" onChange={handleChange} />

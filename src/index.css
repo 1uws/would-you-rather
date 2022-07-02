@@ -89,14 +89,6 @@ li {
 	margin: 0px;
 }
 
-/* .question_info {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-} */
-.question_info {
-}
-
 .avatar {
 	height: 100px;
 	width: 100px;
@@ -109,4 +101,22 @@ li {
 	width: 30px;
 	border-radius: 15px;
 	margin: 0px;
+}
+
+.leaderboard{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.leaderboard_name{
+	margin: 16px;
+	font-size: 20px;
+	font-weight: 500 !important;
+}
+.leaderboard_score{
+	margin: 16px;
+	font-size: 20px;
+	font-weight: 500 !important;
+	color: #447711;
 }
