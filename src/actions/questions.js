@@ -1,7 +1,9 @@
-import { saveQuestionAnswer } from "../utils/api"
+import { hideLoading, showLoading } from "react-redux-loading-bar"
+import { saveQuestion, saveQuestionAnswer } from "../utils/api"
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const SUBMIT_ANSWER = 'SUBMIT_ANSWER'
+export const ADD_QUESTION = 'ADD_QUESTION'
 
 export function receiveQuestions(questions) {
 	return {
@@ -29,5 +31,28 @@ export function handleSubmitAnswer(info) {
 				dispatch(submitAnswer(info))
 				alert('The was an error liking the tweet. Try again.')
 			})
+	}
+}
+
+function addQuestion(question) {
+	return {
+		type: ADD_QUESTION,
+		question,
+	}
+}
+
+export function handleAddQuestion(optionOneText, optionTwoText) {
+	return (dispatch, getState) => {
+		const { authedUser } = getState()
+
+		dispatch(showLoading())
+
+		return saveQuestion({
+			optionOneText,
+			optionTwoText,
+			author: authedUser,
+		})
+			.then((question) => dispatch(addQuestion(question)))
+			.then(() => dispatch(hideLoading()))
 	}
 }

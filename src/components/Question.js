@@ -45,7 +45,7 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 							className='avatar' />
 						<div>
 							<p>Results:</p>
-							<form onSubmit={handleSubmit}>
+							<form>
 								<div style={{ borderWidth: '1px 1px 1px 6px', borderColor: answeredOne ? 'orange' : 'white', borderStyle: 'solid' }}>
 									<p className='question_full' >{question.optionOne.text}</p>
 									<p className='question_percent'>{question.optionOne.votes.length} out of {totalVotes} votes ({votesOnePercentage}%)</p>

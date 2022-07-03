@@ -8,6 +8,7 @@ import LoginPage from './LoginPage'
 import HomePage from './HomePage'
 import LeaderboardPage from './LeaderboardPage'
 import QuestionPage from './QuestionPage'
+import AddPage from './AddPage'
 
 class App extends Component {
 	state = {
@@ -18,7 +19,6 @@ class App extends Component {
 	}
 	loginStateChanged = () => {
 		this.state.isLogined = true;
-		// this.forceUpdate();
 	}
 	render() {
 		const { isLogined } = this.state;
@@ -34,7 +34,7 @@ class App extends Component {
 									<Routes>
 										<Route path='/' element={<HomePage />} />
 										<Route path='/questions/:question_id' element={<QuestionPage />} />
-										<Route path='/add' element={<HomePage />} />
+										<Route path='/add' element={<AddPage />} />
 										<Route path='/leaderboard' element={<LeaderboardPage />} />
 										<Route path='*' element={<Navigate to='/' replace />} />
 									</Routes>
