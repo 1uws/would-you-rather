@@ -11,17 +11,10 @@ import QuestionPage from './QuestionPage'
 import AddPage from './AddPage'
 
 class App extends Component {
-	state = {
-		isLogined: false,
-	}
 	componentDidMount() {
 		this.props.dispatch(handleInitData())
 	}
-	loginStateChanged = () => {
-		this.state.isLogined = true;
-	}
 	render() {
-		const { isLogined } = this.state;
 		return (
 			<Router>
 				<Fragment>
@@ -39,7 +32,7 @@ class App extends Component {
 										<Route path='*' element={<Navigate to='/' replace />} />
 									</Routes>
 								</>
-								: <LoginPage loginStateChanged={this.loginStateChanged} />)
+								: <LoginPage />)
 						}
 					</div>
 				</Fragment>

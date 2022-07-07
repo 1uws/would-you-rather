@@ -1,8 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleLoginData } from '../actions/shared'
-import LoadingBar from 'react-redux-loading-bar'
 
 class HomePage extends Component {
 	render() {
@@ -15,7 +12,7 @@ class HomePage extends Component {
 						.sort((userA, userB) => (Object.keys(userA.answers).length + userA.questions.length < Object.keys(userB.answers).length + userB.questions.length) ? 1 : -1)
 						// .sort((userA, userB) => userA.questions.length < userB.questions.length?1:-1)
 						.map(user =>
-							<div className='leaderboard'>
+							<div className='leaderboard' key={user.id}>
 								<img src={user.avatarURL}
 									alt={`Avatar of ${user.name}`}
 									className='avatar' />

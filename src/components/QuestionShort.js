@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Navigate, unstable_HistoryRouter, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function QuestionShort({ author, question }) {
 	const history = useNavigate();

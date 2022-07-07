@@ -1,9 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleLoginData } from '../actions/shared'
-import LoadingBar from 'react-redux-loading-bar'
-import Question from './Question'
 import QuestionShort from './QuestionShort'
 
 class HomePage extends Component {
@@ -14,7 +10,7 @@ class HomePage extends Component {
 		this.setState({ showAnswered });
 	}
 	render() {
-		const { authedUser, users, questions } = this.props;
+		const { authedUser, questions } = this.props;
 		return (
 			<div>
 				<div className='nav'>
@@ -41,9 +37,9 @@ class HomePage extends Component {
 	}
 }
 
-function mapStateToProps({ authedUser, users, questions }) {
+function mapStateToProps({ authedUser, questions }) {
 	return {
-		authedUser, users, questions
+		authedUser, questions
 	}
 }
 
