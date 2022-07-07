@@ -1,7 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom'
+import { setAuthedUser } from '../actions/authedUser';
 
-export default function Nav({ user }) {
+function Nav({ user, dispatch }) {
+	const history = useNavigate();
+	const handleClickLogout=()=>{
+		dispatch(setAuthedUser(null));
+		history(`/`, { replace: true });
+	}
+	if (!user)
+	{
+		return <></>
+	}
 	return (
 		<nav className='nav'>
 			<ul>
@@ -21,20 +32,25 @@ export default function Nav({ user }) {
 					</NavLink>
 				</li>
 				<li>
-					Hello, {user.name}
-
+					<div className='nav_username'>
+						<p>Hello, {user.name}</p>
+						<img src={user.avatarURL}
+							alt={`Avatar of ${user.name}`}
+							className='avatar_small' />
+					</div>
 				</li>
-				<li>
-					<img src={user.avatarURL}
-						alt={`Avatar of ${user.name}`}
-						className='avatar_small' />
-				</li>
-				<li>
-					<NavLink to='/'>
-						Logout
-					</NavLink>
+				<li onClick={handleClickLogout}>
+					Logout
 				</li>
 			</ul>
 		</nav>
 	)
 }
+
+function mapStateToProps({ users, authedUser }) {
+	return {
+		user: authedUser ? users[authedUser] : null,
+	}
+}
+
+export default connect(mapStateToProps)(Nav)

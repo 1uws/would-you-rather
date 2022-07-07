@@ -28,7 +28,7 @@ class App extends Component {
 					<LoadingBar />
 					<div className='container'>
 						{this.props.loading ? null :
-							(isLogined
+							(this.props.user !== null
 								? <>
 									<Nav user={this.props.user} />
 									<Routes>

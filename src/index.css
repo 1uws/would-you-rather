@@ -120,3 +120,15 @@ li {
 	font-weight: 500 !important;
 	color: #447711;
 }
+
+.nav_username{
+	display: flex;
+}
+
+.nav_username p{
+	margin:0;
+}
+
+.nav_username img{
+	margin:0 0 0 10px;
+}

@@ -7,6 +7,11 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 	const state = {
 		option: null,
 	};
+
+	if (!question) {
+		return <p>404! This question doesn't exist</p>
+	}
+
 	const answeredOne = question.optionOne.votes.includes(authedUser);
 	const answeredTwo = question.optionTwo.votes.includes(authedUser);
 	const answered = answeredOne || answeredTwo;
@@ -27,9 +32,6 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 			qid,
 			answer: state.option,
 		}));
-	}
-	if (!question) {
-		return <p>404! This question doesn't exist</p>
 	}
 
 	return (

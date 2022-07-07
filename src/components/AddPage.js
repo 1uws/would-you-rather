@@ -19,7 +19,11 @@ function AddPage({ dispatch }) {
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(handleAddQuestion(getOptionOne,getOptionTwo));
+		if ('' === getOptionOne || '' === getOptionTwo) {
+			alert('Enter options before submitting!');
+			return;
+		}
+		dispatch(handleAddQuestion(getOptionOne, getOptionTwo));
 		history(`/`, { replace: true });
 	}
 	return (

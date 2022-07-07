@@ -23,14 +23,8 @@ function submitAnswer({ authedUser, qid, answer }) {
 
 export function handleSubmitAnswer(info) {
 	return (dispatch) => {
-		dispatch(submitAnswer(info))
-
 		return saveQuestionAnswer(info)
-			.catch((e) => {
-				console.warn('Error in handleToggleTweet: ', e)
-				dispatch(submitAnswer(info))
-				alert('The was an error liking the tweet. Try again.')
-			})
+			.then(() => dispatch(submitAnswer(info)));
 	}
 }
 
