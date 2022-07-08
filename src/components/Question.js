@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Navigate, unstable_HistoryRouter, useNavigate } from 'react-router-dom'
 import { handleSubmitAnswer } from '../actions/questions';
 
-function Question({ authedUser, author, qid, question, dispatch }) {
+function Question({ authedUser, author, id, question, dispatch }) {
 	const state = {
 		option: null,
 	};
@@ -29,7 +28,7 @@ function Question({ authedUser, author, qid, question, dispatch }) {
 		}
 		dispatch(handleSubmitAnswer({
 			authedUser,
-			qid,
+			qid:id,
 			answer: state.option,
 		}));
 	}
@@ -90,7 +89,7 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
 	const question = questions[id];
 	const author = question ? { name: users[question.author].name, avatar: users[question.author].avatarURL } : null;
 	return {
-		qid: id,
+		id,
 		question,
 		author,
 		authedUser,

@@ -1,8 +1,6 @@
-import React, { Component, Fragment, useState } from 'react'
-import { BrowserRouter as Router, Route, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { handleLoginData } from '../actions/shared'
-import LoadingBar from 'react-redux-loading-bar'
 import { handleAddQuestion } from '../actions/questions'
 
 function AddPage({ dispatch }) {
@@ -41,7 +39,7 @@ function AddPage({ dispatch }) {
 	)
 }
 
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ users }) {
 	return {
 		users
 	}

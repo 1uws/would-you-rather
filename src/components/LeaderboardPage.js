@@ -10,7 +10,6 @@ class HomePage extends Component {
 					Object.keys(users)
 						.map(id => users[id])
 						.sort((userA, userB) => (Object.keys(userA.answers).length + userA.questions.length < Object.keys(userB.answers).length + userB.questions.length) ? 1 : -1)
-						// .sort((userA, userB) => userA.questions.length < userB.questions.length?1:-1)
 						.map(user =>
 							<div className='leaderboard' key={user.id}>
 								<img src={user.avatarURL}
@@ -31,7 +30,7 @@ class HomePage extends Component {
 	}
 }
 
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ users }) {
 	return {
 		users
 	}
